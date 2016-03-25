@@ -20,6 +20,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{22621E
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{7FE90D47-C51B-45E7-BB76-C3BCD25B46DE}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\KhoiHQ\Desktop\sql.sql = C:\Users\KhoiHQ\Desktop\sql.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
