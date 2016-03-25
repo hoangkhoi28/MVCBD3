@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CacheManager.Web</id>
+    <version>0.8.0</version>
+    <authors>MichaConrad</authors>
+    <owners>MichaConrad</owners>
+    <licenseUrl>https://github.com/MichaCo/CacheManager/blob/master/LICENSE</licenseUrl>
+    <projectUrl>http://www.cachemanager.net/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>CacheManager is an open source caching abstraction layer for .NET written in C#. It supports various cache providers and implements many advanced features. This package contains an System.Web.Caching.OutputCacheProvider which uses cache manager.</description>
+    <releaseNotes>Breaking Changes:
+CacheBackPlate got renamed to CacheBackplane. This affects all related implementations, documentation and configuration elements. #44
+
+New features and updates:
+Added feature check for Redis cache handle, now supporting older versions of Redis server #42
+CacheBackplane now works with events
+CacheBackplane performance has been improved significantly #39
+Documentation for Serialization added #40
+API reference documentation: Replaced the old one with new, custom, based on docfx #40
+Added periodical expire check to dictionary cache handle bf76178</releaseNotes>
+    <copyright>Copyright © 2015 MichaConrad</copyright>
+    <tags>Caching Cache CacheManager Distributed Cache StackExchange Redis Azure AppFabric Memcached</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.0">
+        <dependency id="CacheManager.Core" version="0.8.0" />
+      </group>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="CacheManager.Core" version="0.8.0" />
+      </group>
+      <group targetFramework="Unsupported0.0">
+        <dependency id="CacheManager.Core" version="0.8.0" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Configuration" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="System.Web" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="mscorlib" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="System.Configuration" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Web" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="mscorlib" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Configuration" targetFramework="Unsupported0.0" />
+      <frameworkAssembly assemblyName="System.Web" targetFramework="Unsupported0.0" />
+      <frameworkAssembly assemblyName="mscorlib" targetFramework="Unsupported0.0" />
+      <frameworkAssembly assemblyName="System" targetFramework="Unsupported0.0" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="Unsupported0.0" />
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework="Unsupported0.0" />
+    </frameworkAssemblies>
+  </metadata>
+</package>
