@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model MvcAppBd3Web.Models.DVHCModels
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h2>Form @(Model.DVHCModel.IDDVHC > 0 ? "sửa" : "thêm mới") đơn vị hành chính</h2></div>
+            <div class="panel-body">
+                @using (Html.BeginForm("Action", "DVHC", FormMethod.Post, new { @id = "frmCreateUser", @class = "form-horizontal" }))
+                {
+                    @Html.HiddenFor(u => u.DVHCModel.IDDVHC, new { @Class = "form-control", @id = "ID" })
+                    <div id="dialog">
+                        @Html.Raw(Model.strMessage)
+                    </div>
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">Tên quyền hạn</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(u => u.DVHCModel.TenDVHC, new { @Class = "form-control", @id = "RoleName", @placeholder = "Tên quyền hạn" })
+                        </div>
+                        <div class="col-sm-2">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Mô tả</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(u => u.DVHCModel.MoTaDVHC, new { @Class = "form-control", @id = "Description", @placeholder = "Mô tả" })
+
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <button class="btn-primary btn " type="submit" id="btn-submit" onclick="return Validation();">Submit</button>
+                                <button class="btn-default btn" type="reset">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/assets/admin/DVHC.js"></script>

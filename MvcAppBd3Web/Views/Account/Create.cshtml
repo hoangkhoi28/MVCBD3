@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model MvcAppBd3Web.Models.AccountModels
+
+<div class="container" id="registration-form">
+    <a href="/"><img src="assets/img/logo-login.png" class="login-logo"></a>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2>Đăng ký thông tin</h2></div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("Create", "Account", FormMethod.Post, new { @id = "frmCreateUser", @class = "form-horizontal" }))
+                    {
+
+                        <div id="dialog">
+                            @Html.Raw(Model.strMessage)
+                        </div>
+                        <div class="form-group">
+                            <label for="FullName" class="col-xs-4 control-label">Họ và tên</label>
+                            <div class="col-xs-8">                                
+                                @Html.TextBoxFor(u => u.userModel.UserName, new { @Class = "form-control", @id = "FullName", @placeholder = "Họ tên", @required = true })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Username" class="col-xs-4 control-label">Tài khoản</label>
+                            <div class="col-xs-8">
+                                @Html.TextBoxFor(u => u.userModel.UserName, new { @Class = "form-control", @id = "UserName", @placeholder = "Tài khoản", @required = true })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Password" class="col-xs-4 control-label">Mật khẩu</label>
+                            <div class="col-xs-8">
+                                @Html.PasswordFor(u => u.userModel.Password, new { @Class = "form-control", @id = "Password", @placeholder = "Mật khẩu", @required = true })
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                            <label for="ConfirmPassword" class="col-xs-4 control-label">Nhập lại mật khẩu</label>
+                            <div class="col-xs-8">
+                                <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword" placeholder="Nhập lại mật khẩu" required>
+
+                            </div>
+                        </div>*@
+                        <div class="form-group">
+                            <label for="Email" class="col-xs-4 control-label">Chức vụ</label>
+                            <div class="col-xs-8">
+                                @*<select class="form-control" id="source">
+                                        <option value="WV">Quản trị hệ thống</option>
+                                    </select>*@
+                                @*@Html.DropDownListFor(u => u.strRole, Model.selectUserRole, new { @Class = "form-control", @id = "IDRole" })*@
+                                @Html.DropDownListFor(u => u.strRole, new SelectList(Model.selectUserRole, "Value", "Text"), "- Chọn quyền hạn -", new { @Class = "form-control", @id = "IDRole" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Email" class="col-xs-4 control-label">Email</label>
+                            <div class="col-xs-8">
+                                @Html.TextBoxFor(u => u.userModel.Email, new { @Class = "form-control", @id = "Email", @placeholder = "Email", @required = true })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Email" class="col-xs-4 control-label">Số điện thoại</label>
+                            <div class="col-xs-8">                               
+                                @Html.TextBoxFor(u => u.userModel.PhoneNumber, new { @Class = "form-control", @id = "SDT", @placeholder = "Điện thoại", @required = true })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Email" class="col-xs-4 control-label">Địa chỉ</label>
+                            <div class="col-xs-8">
+                                @Html.TextBoxFor(u => u.userModel.Address, new { @Class = "form-control", @id = "Address", @placeholder = "Địa chỉ", @required = true })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Tỉnh</label>
+                            <div class="col-sm-8">
+                                @*<select class="form-control" id="source">
+                                        <option value="WV">Chọn tỉnh</option>
+                                    </select>*@
+                                @Html.DropDownListFor(u => u.strDVHC, (SelectList)Model.selectDVHC, new { @Class = "form-control", @id = "IDDVHC" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Huyện</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="source">
+                                    <option value="WV">Chọn huyện</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Xã</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="source">
+                                    <option value="WV">Chọn xã</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="text-center clearfix">
+                                <button class="btn-primary btn" type="button" onclick="return checkmail();">Tạo tài khoản</button>
+                                <button class="btn-primary btn hidden" type="submit" id="btn-submit"></button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/assets/admin/Validation.js"></script>
+<script type="text/javascript" src="/assets/admin/Account.js"></script>
